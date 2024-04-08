@@ -55,6 +55,43 @@ public:
       }
     }
 
+    bool entrarPerfilUsuario(int id){
+        int opcion;
+        cout<<"1. mostrar amigos del usuario seleccionado"<<endl;
+        cout<<"2. mostrar publicaciones del usuario seleccionado"<<endl;
+        cout<<"3. crear publicacion"<<endl;
+        cout<<"4. entrar a perfil de amigo"<<endl;
+        cin>>opcion;
+        switch(opcion){
+            case 1:
+                getUsuario(id)->mostrarAmigos();
+                return 0;
+            break;
+            case 2:
+                getUsuario(id)->mostrarPublicaciones();
+                return 0;
+            break;
+            case 3:
+                getUsuario(id)->crearPublicacion();
+                return 0;
+            break;
+            case 4:
+                return 1;
+            break;
+            case 5:
+                cout<<"escribe el id del amigo a agregar"<<endl;
+                int od;
+                cin>>od;
+                getUsuario(id)->agregarAmigo(getUsuario(od));//<--mostrar al profe
+                return 0;
+            break;
+            default:
+                return 0;
+            break;
+        }
+    }
+
+
     RedSocial_(string nombre){
         this->nombre=nombre;
     }

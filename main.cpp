@@ -74,9 +74,13 @@ int main() {
                     }
                     break;
                 case 5:
-                    cout << "Ingrese su ID de usuario: ";
+                    amigo_check:
+                    cout << "Ingrese el ID de usuario: ";
                     cin >> id;
-                    redSocial.entrarPerfilUsuario(id);
+
+                    if (redSocial.entrarPerfilUsuario(id)==1){
+                        goto amigo_check;
+                    }
                     break;
                 case 6:
                     cout << "Ingrese el nombre del nuevo usuario: ";
