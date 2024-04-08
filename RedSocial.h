@@ -36,14 +36,14 @@ public:
 
     void mostrarPublicaciones() {
       for (int i=0;i<publicaciones.size();i++){
-          publicaciones[i]->mostrarPublicaciones();
+          publicaciones[i]->mostrarPublicacion();
       }
     }
 
     Usuario_* getUsuario(int id) {
       int encontrado=0;
       for (int i=0;i<usuarios.size();i++){
-          if (id==usuarios[i].getId){
+          if (id==usuarios[i].getId){ //<-- morstrar al profe
               return usuarios[i];
               encontrado=1;
               i=usuarios.size();
@@ -59,12 +59,12 @@ public:
         this->nombre=nombre;
     }
 
-    RedSocial_(string nombre, vector <Usuario_*> usuario){
+    RedSocial_(string nombre, vector <Usuario_*> usuario){//<-- mandar al profe ningun Usuario_* sirve
         this->nombre=nombre;
         this->usuarios=usuario;
     }
 
-    RedSocial_(string nombre, vector <Usuario_*> usuario, vector <Publicacion*>publicacion){
+    RedSocial_(string nombre, vector <Usuario_*> usuario, vector <Publicacion_*>publicacion){
         this->nombre=nombre;
         this->usuarios=usuario;
         this->publicaciones=publicacion;

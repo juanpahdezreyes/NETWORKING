@@ -62,8 +62,8 @@ public:
       cout<<"escriba el contenidod e la publicacion"<<endl;
       cin>>contenido;
       cout<<endl;
-      Publicacion_ new(this,fecha,contenido);
-      publicaciones.push_back(&new);
+      Publicacion_ (this,fecha,contenido);
+      publicaciones.push_back(&new); //<-- mandar al profe
     }
     Usuario_* getAmigo(int id){
       bool encontrado=0;
