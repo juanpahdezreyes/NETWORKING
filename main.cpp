@@ -17,7 +17,7 @@ int main() {
     // Crear usuarios
     Usuario* usuario1 = new Usuario("Carslos", 25, "Mexicano");
     Usuario* usuario2 = new Usuario("Panchito", 30, "Africano");
-    Usuario* usuario3 = new Usuario("Enrique", 20, "EstadoUnidese");
+    Usuario* usuario3 = new Usuario("Enrique", 20, "EstadoUnidese");//*
 
     // Agregar usuarios a la red social
     redSocial.agregarUsuario(usuario1);
