@@ -1,5 +1,5 @@
 #include "RedSocial.h"
-#include "Usuario.h"
+#include "usuario.h"
 #include "Publicacion.h"
 
 #include <iostream>
@@ -8,10 +8,10 @@
 
 using namespace std;
 
-int Publicacion::idCounter = 1; // idCounter variable estatica de la clase Publicacion.
+int Publicacion_::idCounter = 1; // idCounter variable estatica de la clase Publicacion.
 // :: se utilizan para decir qie IdCounter es una variable estatica de la clase Publicacion.
 // cuando se crea un objeto de la clase Usuario se asigna el valor actual de idCounter a ese usuario y despues aumenta +1 el counter
-int Usuario::idCounter = 1;
+int Usuario_::idCounter = 1;
 
 int main() {
     RedSocial_ redSocial("Networking");
@@ -20,9 +20,9 @@ int main() {
     // Crear un nuevo objeto de la clase Usuario y asignarle memoria en el heap.
    // Es como pedir prestada una cajita especial al sistema operativo en lugar de guardarla
   // directamente en la memoria interna del programa.
-    Usuario* usuario1 = new Usuario("Carslos", 25, "Mexicano");
-    Usuario* usuario2 = new Usuario("Panchito", 30, "Africano");
-    Usuario* usuario3 = new Usuario("Enrique", 20, "EstadoUnidese");//*
+    Usuario_* usuario1 = new Usuario_("Carslos", 25, "Mexicano");
+    Usuario_* usuario2 = new Usuario_("Panchito", 30, "Africano");
+    Usuario_* usuario3 = new Usuario_("Enrique", 20, "EstadoUnidese");//*
 
     // Agregar usuarios a la red social
     redSocial.agregarUsuario(usuario1);
@@ -66,19 +66,7 @@ int main() {
                     cin >> fecha;
                     cout << "Ingrese el contenido de la publicación: ";
                     cin >> contenido;
-                    //redSocial.getUsuario(id)->agregarPublicacion(fecha, contenido);
-                    break;
-                case 4:
-                    cout << "Ingrese el ID de la publicación que desea eliminar: ";
-                    cin >> id;
-                    for (Publicacion* publicacion : redSocial.getPublicaciones()) {
-                        if (publicacion->getId() == id) {
-                            for (Usuario* usuario : redSocial.getUsuarios()) {
-                                usuario->quitarPublicacion(id);
-                            }
-                            break;
-                        }
-                    }
+                    
                     break;
                 case 5:
                     amigo_check:
@@ -90,6 +78,7 @@ int main() {
                     }
                     break;
                 case 6:
+                {
                     cout << "Ingrese el nombre del nuevo usuario: ";
                     string nombre;
                     cin >> nombre;
@@ -99,15 +88,16 @@ int main() {
                     cout << "Ingrese la nacionalidad del nuevo usuario: ";
                     string nacionalidad;
                     cin >> nacionalidad;
-                    Usuario* nuevoUsuario = new Usuario(nombre, edad, nacionalidad);
+                    Usuario_* nuevoUsuario = new Usuario_(nombre, edad, nacionalidad);
                     redSocial.agregarUsuario(nuevoUsuario);
                     break;
+                }
                 case 7:
                     cout << "¡Hasta luego!" << endl;
                     break;
                 default:
                     cout << "Opción inválida. Por favor, seleccione una opción válida." << endl;
-                    break;
+                break;
             }
         } else {
             cout << "Entrada inválida. Por favor, seleccione una opción válida." << endl;
@@ -116,10 +106,7 @@ int main() {
         }
     } while (opcion != 7);
 
-    // Liberar memoriajj
-    for (Usuario* usuario : redSocial.getUsuarios()) {
-        delete usuario;
-    }
+    
 
     return 0;
-}
+} 

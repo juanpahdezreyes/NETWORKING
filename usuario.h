@@ -12,6 +12,7 @@ using namespace std;
 class Usuario_ {
 private:
     int id;
+    static int idCounter;
 public:
     string nombre;
    int edad;
