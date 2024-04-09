@@ -43,7 +43,7 @@ public:
     Usuario_* getUsuario(int id) {
       int encontrado=0;
       for (int i=0;i<usuarios.size();i++){
-          if (id==usuarios[i].getId){ //<-- morstrar al profe
+          if (id==usuarios[i]->getId()){ //<-- morstrar al profe
               return usuarios[i];
               encontrado=1;
               i=usuarios.size();

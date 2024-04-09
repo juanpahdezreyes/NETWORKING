@@ -65,6 +65,11 @@ public:
       Publicacion_ (this,fecha,contenido);
       publicaciones.push_back(&new); //<-- mandar al profe
     }
+    /*void agregarPublicacion(string fech,string cont){
+    Publicacion_ (this,fech,conten);
+    publicaciones.push_back(&new); //<-- mandar al profe
+    }*/
+
     Usuario_* getAmigo(int id){
       bool encontrado=0;
       for (int i=0;i<amigos.size();i++){

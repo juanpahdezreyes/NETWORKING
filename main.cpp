@@ -8,13 +8,18 @@
 
 using namespace std;
 
-int Publicacion::idCounter = 1;
+int Publicacion::idCounter = 1; // idCounter variable estatica de la clase Publicacion.
+// :: se utilizan para decir qie IdCounter es una variable estatica de la clase Publicacion.
+// cuando se crea un objeto de la clase Usuario se asigna el valor actual de idCounter a ese usuario y despues aumenta +1 el counter
 int Usuario::idCounter = 1;
 
 int main() {
-    RedSocial_ redSocial("MiRedSocial");
+    RedSocial_ redSocial("Networking");
 
-    // Crear usuarios
+     // Crear usuarios
+    // Crear un nuevo objeto de la clase Usuario y asignarle memoria en el heap.
+   // Es como pedir prestada una cajita especial al sistema operativo en lugar de guardarla
+  // directamente en la memoria interna del programa.
     Usuario* usuario1 = new Usuario("Carslos", 25, "Mexicano");
     Usuario* usuario2 = new Usuario("Panchito", 30, "Africano");
     Usuario* usuario3 = new Usuario("Enrique", 20, "EstadoUnidese");//*
@@ -31,7 +36,7 @@ int main() {
     string input;
     do {
         cout << "======= Menú Principal =======" << endl;
-        cout << "1. Mostrar usuarios" << endl;
+        cout << "1 Mostrar usuarios" << endl;
         cout << "2. Mostrar publicaciones" << endl;
         cout << "3. Agregar publicación" << endl;
         cout << "4. Quitar publicación" << endl;
@@ -42,9 +47,11 @@ int main() {
         cin >> input;
 
 
-        if (isdigit(input[0])) {    // isdigit se utiliza para determinar si un carácter es un dígito 
-            opcion = stoi(input);  // stoi es para convertir una cadena que representa un número en formato de texto a su equivalente entero.
+        if (isdigit(input[0])) {    // Esta línea verifica si el primer carácter de la entrada (input) es un dígito utilizando la función
+                                   // isdigit(). Si es un dígito, se ejecuta el bloque de código dentro del if.
 
+            opcion = stoi(input);  // Convierte la cadena de entrada (input) en un número entero utilizando la función stoi()
+            // y lo asigna a la variable opcion.
             switch (opcion) {
                 case 1:
                     redSocial.mostrarUsuarios();
@@ -59,7 +66,7 @@ int main() {
                     cin >> fecha;
                     cout << "Ingrese el contenido de la publicación: ";
                     cin >> contenido;
-                    redSocial.getUsuario(id)->agregarPublicacion(fecha, contenido);
+                    //redSocial.getUsuario(id)->agregarPublicacion(fecha, contenido);
                     break;
                 case 4:
                     cout << "Ingrese el ID de la publicación que desea eliminar: ";
